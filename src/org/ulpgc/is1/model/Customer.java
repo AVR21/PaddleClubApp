@@ -29,7 +29,7 @@ public class Customer {
     }
 
     public NIF getNif() {
-        return nif.getNumber();
+        return nif;
     }
 
     public void setNif(NIF nif) {
