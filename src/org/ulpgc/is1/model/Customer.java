@@ -6,10 +6,10 @@ public class Customer {
     private NIF nif;
 
 
-    public Customer(String name, String surname, NIF nif){
+    public Customer(String name, String surname, String nif){
         this.name = name;
         this.surname = surname;
-        this.nif = nif;
+        this.nif = NIF.create(nif);
     }
 
     public String getName() {
@@ -29,7 +29,7 @@ public class Customer {
     }
 
     public NIF getNif() {
-        return nif;
+        return nif.getNumber();
     }
 
     public void setNif(NIF nif) {
