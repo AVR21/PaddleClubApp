@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bbd1116-4738-46b0-8ddb-ed6da1402f25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/control/Main.java" afterDir="false" />
+    <list default="true" id="7bbd1116-4738-46b0-8ddb-ed6da1402f25" name="Changes" comment="Created control and model packages, added Main class to control package.">
+      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Court.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/CourtType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Equipment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Extra.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/NIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/PaddelManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Reservation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Umpire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +26,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -35,6 +50,11 @@
     "git-widget-placeholder": "main"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.ulpgc.is1.model" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -44,6 +64,23 @@
       <option name="presentableId" value="Default" />
       <updated>1697620219035</updated>
     </task>
+    <task id="LOCAL-00001" summary="Project Setup">
+      <option name="closed" value="true" />
+      <created>1697620826379</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697620826379</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Created control and model packages, added Main class to control package.">
+      <option name="closed" value="true" />
+      <created>1697620891815</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697620891815</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -56,5 +93,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="TrabajoPractico1 generado" />
+    <MESSAGE value="Project Setup" />
+    <MESSAGE value="Created control and model packages, added Main class to control package." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created control and model packages, added Main class to control package." />
   </component>
 </project>
