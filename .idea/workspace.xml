@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bbd1116-4738-46b0-8ddb-ed6da1402f25" name="Changes" comment="Added NIF initialization as value object.">
+    <list default="true" id="7bbd1116-4738-46b0-8ddb-ed6da1402f25" name="Changes" comment="Solved incompatible type error in Customer.getNif">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Court.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Court.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Extra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Extra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Reservation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,24 +29,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2Wvk0bxwCLfwyx8lObEDL0Ik4ia" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.ulpgc.is1.model" />
@@ -88,7 +93,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697641519726</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Solved incompatible type error in Customer.getNif">
+      <option name="closed" value="true" />
+      <created>1697641659121</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697641659121</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,6 +121,7 @@
     <MESSAGE value="Created control and model packages, added Main class to control package." />
     <MESSAGE value="Added Class Diagram's classes in model package." />
     <MESSAGE value="Added NIF initialization as value object." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added NIF initialization as value object." />
+    <MESSAGE value="Solved incompatible type error in Customer.getNif" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solved incompatible type error in Customer.getNif" />
   </component>
 </project>

@@ -1,6 +1,14 @@
 package org.ulpgc.is1.model;
 
 public abstract class Extra {
-    public int price;
+    private int price;
     public abstract String getName();
+
+    public int getPrice(){
+        return this.price;
+    }
+
+    public void setPrice(int price){
+        this.price = price;
+    }
 }
