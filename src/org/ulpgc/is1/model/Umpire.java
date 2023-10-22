@@ -5,25 +5,15 @@ public class Umpire extends Extra {
     private String name;
     private String surname;
 
-    public Umpire(String name, String surname){
+    public Umpire(int price, String name, String surname){
+        super(price);
         this.name = name;
         this.surname = surname;
     }
 
     @Override
     public String getName() {
-        return null;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
+        return name+" "+surname;
     }
 }
