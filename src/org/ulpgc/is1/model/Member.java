@@ -17,7 +17,7 @@ public class Member extends Customer{
         this.points = points;
     }
 
-    public void addAddress(String street, int number, int postalCode, String city) {
+    public void setAddress(String street, int number, int postalCode, String city) {
         this.address = new Address(street, number, postalCode, city);
     }
 
