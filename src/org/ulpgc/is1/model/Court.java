@@ -48,7 +48,7 @@ public class Court {
         return reservations.add(newReservation);
     }
 
-    public boolean removeReservation(int reservationId){
+    public boolean removeReservation(Reservation reservationId){
         for(Reservation reservation : reservations){
             if(reservation.getId() == reservationId)
                 return reservations.remove(reservation);
