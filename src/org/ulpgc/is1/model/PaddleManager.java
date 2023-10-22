@@ -2,7 +2,7 @@ package org.ulpgc.is1.model;
 
 import java.util.List;
 
-public class PaddelManager {
+public class PaddleManager {
     private List<Customer> customers;
     private List<Court> courts;
 
