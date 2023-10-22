@@ -1,10 +1,14 @@
 package org.ulpgc.is1.model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class PaddleManager {
-    private List<Customer> customers;
-    private List<Court> courts;
+    private ArrayList<Customer> customers;
+    private ArrayList<Court> courts;
+    public PaddleManager(){
+        customers = new ArrayList<>();
+        courts = new ArrayList<>();
+    }
 
     public void addCustomer() {
     }
