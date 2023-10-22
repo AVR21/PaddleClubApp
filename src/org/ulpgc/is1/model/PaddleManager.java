@@ -3,80 +3,95 @@ package org.ulpgc.is1.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+
 public class PaddleManager {
     private ArrayList<Customer> customers;
     private ArrayList<Court> courts;
-    private ArrayList<Reservation> reservations;
 
     public PaddleManager() {
         customers = new ArrayList<>();
         courts = new ArrayList<>();
-        reservations = new ArrayList<>();
     }
 
+    //Devuelve la lista de clientes (Customer)
     public ArrayList<Customer> getCustomers() {
         return this.customers;
     }
 
-    public void addCustomer(Customer customer) {
-        customers.add(customer);
+    //Devuelve la lista de canchas (Court)
+    public ArrayList<Court> getCourts(){
+        return this.courts;
     }
 
-    public void addCourt(Court court) {
-        courts.add(court);
+    //Añade un nuevo cliente a la lista de clientes (Customer)
+    public boolean addCustomer(Customer newCustomer) {
+        if(customers.contains(newCustomer)) return false;
+        return customers.add(newCustomer);
     }
 
-    public Customer getCustomer(int index) {
-        if (index >= 0 && index < customers.size()) {
-            return customers.get(index);
-        } else {
-            return null; // Manejo de índices fuera de rango, puedes ajustarlo según tus necesidades.
+    //Añade una nueva cancha a la lista de canchas (Court)
+    public boolean addCourt(Court court) {
+        if(courts.contains(court)) return false;
+        return courts.add(court);
+    }
+
+    //Devuelve un cliente cuyo NIF coincida con el pasado por parámetro
+    public Customer getCustomer(String nif) {
+        for(Customer customer : customers){
+            if(customer.getNif().getNumber().equals(nif)) return customer;
         }
+        return null;
     }
 
-    public Court getCourt(int index) {
-        if (index >= 0 && index < courts.size()) {
-            return courts.get(index);
-        } else {
-            return null; // Manejo de índices fuera de rango, puedes ajustarlo según tus necesidades.
+    //Devuelve una cancha cuyo nombre coincide con el pasado por parámetro
+    public Court getCourt(String name) {
+        for(Court court : courts){
+            if(court.getName().equals(name)) return court;
         }
+        return null;
     }
 
-    public ArrayList<Reservation> getReservations() {
-        return this.reservations;
+    //Reserva una cancha (Court) para un cliente (Customer), se comprueba si la cancha esta disponible en la fecha indicada
+    public boolean reserve(Customer customer, Court court, Date date) {
+        if(!isCourtAvailable(court, date)) return false;
+        Reservation reservation = new Reservation(customer, court, date);
+        customer.addReservation(reservation);
+        return court.addReservation(reservation);
     }
 
-    public Reservation reserve(Customer customer, Court court, Date date, String extra) {
-
-        if (!isCourtAvailable(court, date)) {
-            return null;
-        }
-        Reservation reservation = new Reservation(customer, court, date, extra);
-        reservations.add(reservation);
-        court.addReservation(reservation);
-        return reservation;
-    }
-
-    public boolean cancelReservation(Reservation reservation) {
-        if (reservations.remove(reservation)) {
-            Court court = reservation.getCourt();
-            if (court != null) {
-                court.removeReservation(reservation);
-            }
-
+    /*
+    * Esto es un ejemplo de "Overload" en java, es posible llamar dos métodos con el mismo nombre siempre que tengan
+    * distintos parámetros. Se suele usar como en este caso, para realizar la misma función pero recibiendo diferentes
+    * datos. Hay que recordar, eliminar la reserva por parte de la cancha y por parte del cliente en ambos casos.
+    */
+    public boolean cancelReservation(Court court, int reservationId) {
+        Reservation reservation = court.getReservation(reservationId);
+        if(reservation == null) return false;
+        if(reservation.getCustomer().getReservations().contains(reservation)){
+            reservation.getCustomer().getReservations().remove(reservation);
+            court.getReservations().remove(reservation);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
-    private boolean isCourtAvailable(Court court, Date date) {
-  for (Reservation reservation : reservations) {
-            if (reservation.getCourt() == court && reservation.getDate().equals(date)) {
+    public boolean cancelReservation(Customer customer, int reservationId){
+        Reservation reservation = customer.getReservation(reservationId);
+        if(reservation == null) return false;
+        if(reservation.getCourt().getReservations().contains(reservation)){
+            reservation.getCourt().getReservations().remove(reservation);
+            customer.getReservations().remove(reservation);
+            return true;
+        }
+        return false;
+    }
+
+    private static boolean isCourtAvailable(Court court, Date date) {
+        for (Reservation reservation : court.getReservations()) {
+            if (reservation.getDate().equals(date)) {
                 return false;
             }
         }
-
         return true;
     }
 }
