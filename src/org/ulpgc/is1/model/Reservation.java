@@ -11,10 +11,11 @@ public class Reservation {
     private Court court;
     private ArrayList<Extra> extras;
 
-    public Reservation(Customer customer, Court court, Date date, String extra){
+    public Reservation(Customer customer, Court court, Date date){
         this.id = NEXT_ID++;
         this.customer = customer;
         this.court = court;
+        this.date = date;
         this.extras = new ArrayList<>();
     }
 
