@@ -23,38 +23,33 @@ public class PaddleManager {
         return this.courts;
     }
 
-    //Añade un nuevo cliente a la lista de clientes (Customer)
+    //Crea y añade un nuevo cliente a la lista de clientes (Customer)
     public void addCustomer(String name, String surname, String nif) {
         customers.add(new Customer(name, surname, nif));
     }
 
-    //Añade una nueva cancha a la lista de canchas (Court)
+    //Crea y añade una nueva cancha a la lista de canchas (Court)
     public void addCourt(String name, int price, CourtType type) {
         courts.add(new Court(name, price, type));
     }
 
-    //Devuelve un cliente cuyo NIF coincida con el pasado por parámetro
-    public Customer getCustomer(String nif) {
-        for(Customer customer : customers){
-            if(customer.getNif().getNumber().equals(nif)) return customer;
-        }
-        return null;
+    //Devuelve un cliente según el índice pasado por parámetro
+    public Customer getCustomer(int index) {
+        if(index < 0 || index >= customers.size()) return null;
+        return customers.get(index);
     }
 
-    //Devuelve una cancha cuyo nombre coincide con el pasado por parámetro
-    public Court getCourt(String name) {
-        for(Court court : courts){
-            if(court.getName().equals(name)) return court;
-        }
-        return null;
+    //Devuelve una cancha según el índice pasado por parámetro
+    public Court getCourt(int index) {
+        if(index < 0 || index >= courts.size()) return null;
+        return courts.get(index);
     }
 
     //Reserva una cancha (Court) para un cliente (Customer), se comprueba si la cancha esta disponible en la fecha indicada
     public boolean reserve(Customer customer, Court court, Date date) {
         if(!isCourtAvailable(court, date)) return false;
         Reservation reservation = new Reservation(customer, court, date);
-        customer.addReservation(reservation);
-        return court.addReservation(reservation);
+        return court.addReservation(reservation) && customer.addReservation(reservation);
     }
 
     /*
@@ -66,9 +61,8 @@ public class PaddleManager {
         Reservation reservation = court.getReservation(reservationId);
         if(reservation == null) return false;
         if(reservation.getCustomer().getReservations().contains(reservation)){
-            reservation.getCustomer().getReservations().remove(reservation);
-            court.getReservations().remove(reservation);
-            return true;
+            return reservation.getCustomer().getReservations().remove(reservation) &&
+                    court.getReservations().remove(reservation);
         }
         return false;
     }
@@ -77,18 +71,15 @@ public class PaddleManager {
         Reservation reservation = customer.getReservation(reservationId);
         if(reservation == null) return false;
         if(reservation.getCourt().getReservations().contains(reservation)){
-            reservation.getCourt().getReservations().remove(reservation);
-            customer.getReservations().remove(reservation);
-            return true;
+            return reservation.getCourt().getReservations().remove(reservation) &&
+                    customer.getReservations().remove(reservation);
         }
         return false;
     }
 
     private static boolean isCourtAvailable(Court court, Date date) {
         for (Reservation reservation : court.getReservations()) {
-            if (reservation.getDate().equals(date)) {
-                return false;
-            }
+            return !reservation.getDate().equals(date);
         }
         return true;
     }
