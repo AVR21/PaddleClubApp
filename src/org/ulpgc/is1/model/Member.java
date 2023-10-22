@@ -17,11 +17,11 @@ public class Member extends Customer{
         this.points = points;
     }
 
-    public Address getAddress() {
-        return address;
+    public void addAddress(String street, int number, int postalCode, String city) {
+        this.address = new Address(street, number, postalCode, city);
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public Address getAddress() {
+        return address;
     }
 }
