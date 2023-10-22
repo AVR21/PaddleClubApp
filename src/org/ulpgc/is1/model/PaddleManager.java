@@ -24,15 +24,13 @@ public class PaddleManager {
     }
 
     //Añade un nuevo cliente a la lista de clientes (Customer)
-    public boolean addCustomer(Customer newCustomer) {
-        if(customers.contains(newCustomer)) return false;
-        return customers.add(newCustomer);
+    public void addCustomer(String name, String surname, String nif) {
+        customers.add(new Customer(name, surname, nif));
     }
 
     //Añade una nueva cancha a la lista de canchas (Court)
-    public boolean addCourt(Court court) {
-        if(courts.contains(court)) return false;
-        return courts.add(court);
+    public void addCourt(String name, int price, CourtType type) {
+        courts.add(new Court(name, price, type));
     }
 
     //Devuelve un cliente cuyo NIF coincida con el pasado por parámetro
