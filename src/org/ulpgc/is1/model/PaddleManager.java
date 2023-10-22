@@ -10,10 +10,16 @@ public class PaddleManager {
         courts = new ArrayList<>();
     }
 
+    public ArrayList<Customer> getCustomers(){
+        return this.customers;
+    }
+
     public void addCustomer() {
+
     }
 
     public void addCourt() {
+
     }
 
     public Customer getCustomer() {
