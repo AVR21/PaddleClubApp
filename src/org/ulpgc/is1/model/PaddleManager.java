@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
+
 public class PaddleManager {
     private ArrayList<Customer> customers;
     private ArrayList<Court> courts;
@@ -13,19 +14,21 @@ public class PaddleManager {
         courts = new ArrayList<>();
     }
 
-    //Devuelve la lista de clientes (Customer)
-    public ArrayList<Customer> getCustomers() {
-        return this.customers;
-    }
-
-    //Devuelve la lista de canchas (Court)
-    public ArrayList<Court> getCourts(){
-        return this.courts;
-    }
-
     //Crea y añade un nuevo cliente a la lista de clientes (Customer)
     public void addCustomer(String name, String surname, String nif) {
         customers.add(new Customer(name, surname, nif));
+    }
+
+    //Devuelve un cliente según el índice pasado por parámetro
+    public Customer getCustomer(int index) {
+        if(index < 0 || index >= customers.size()) throw new IndexOutOfBoundsException();
+        return customers.get(index);
+    }
+
+    //Elimina el cliente almacenado en la posición indicada de la lista
+    public boolean removeCustomer(int index) {
+        if(index < 0 || index >= customers.size()) throw new IndexOutOfBoundsException();
+        return customers.remove(index) != null;
     }
 
     //Crea y añade una nueva cancha a la lista de canchas (Court)
@@ -33,23 +36,25 @@ public class PaddleManager {
         courts.add(new Court(name, price, type));
     }
 
-    //Devuelve un cliente según el índice pasado por parámetro
-    public Customer getCustomer(int index) {
-        if(index < 0 || index >= customers.size()) return null;
-        return customers.get(index);
-    }
-
     //Devuelve una cancha según el índice pasado por parámetro
     public Court getCourt(int index) {
-        if(index < 0 || index >= courts.size()) return null;
+        if(index < 0 || index >= courts.size()) throw new IndexOutOfBoundsException();
         return courts.get(index);
     }
 
+    //Elimina la cancha almacenada en la posición indicada de la lista
+    public boolean removeCourt(int index){
+        if(index < 0 || index >= courts.size()) throw new IndexOutOfBoundsException();
+        return courts.remove(index) != null;
+    }
+
     //Reserva una cancha (Court) para un cliente (Customer), se comprueba si la cancha esta disponible en la fecha indicada
-    public boolean reserve(Customer customer, Court court, Date date) {
-        if(!isCourtAvailable(court, date)) return false;
+    public void reserve(Customer customer, Court court, Date date) {
+        if(!isCourtAvailable(court, date)) return;
         Reservation reservation = new Reservation(customer, court, date);
-        return court.addReservation(reservation) && customer.addReservation(reservation);
+        if (court.addReservation(reservation)) {
+            customer.addReservation(reservation);
+        }
     }
 
     /*
