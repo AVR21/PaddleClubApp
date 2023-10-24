@@ -13,7 +13,7 @@ public class NIF {
         return nif;
     }
 
-    private boolean isValid() {
+    public boolean isValid() {
         if (this.number.length() != 9) return false;
         return this.number.matches("\\d{8}[A-Z]");
     }
