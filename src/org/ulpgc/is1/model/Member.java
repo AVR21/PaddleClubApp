@@ -3,9 +3,15 @@ package org.ulpgc.is1.model;
 public class Member extends Customer{
     private int points;
 
-    public Address address;
+    private Address address;
 
-    public Member(String name, String surname, String nif) {
+    public Member create(String name, String surname, String nif, String street, int number, int postalCode, String city){
+        Member member = new Member(name, surname, nif);
+        member.setAddress(street, number, postalCode, city);
+        return member;
+    }
+
+    private Member(String name, String surname, String nif) {
         super(name, surname, nif);
         this.points = 0;
     }
