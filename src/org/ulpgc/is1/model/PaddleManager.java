@@ -18,6 +18,10 @@ public class PaddleManager {
         customers.add(new Customer(name, surname, nif));
     }
 
+    public void addMember(String name, String surname, String nif, String street, int number, int postalCode, String city){
+        customers.add(Member.create(name, surname, nif, street, number, postalCode, city));
+    }
+
     //Devuelve un cliente según el índice pasado por parámetro
     public Customer getCustomer(int index) {
         if (index < 0 || index >= customers.size()) throw new IndexOutOfBoundsException();
