@@ -10,7 +10,7 @@ public class Main {
         PaddleManager manager = new PaddleManager();
         init(manager);
         System.out.println("\nNIF's válidos de los clientes del club:");
-        int size = manager.getCustomers().size();
+        int size = manager.countCustomers();
         for (int i = 0; i < size; i++) {
             if (!manager.getCustomer(i).getNif().getNumber().equals("XXXX")) {
                 System.out.println("Cliente con nombre: " + manager.getCustomer(i).getName() + " con NIF válido: " + manager.getCustomer(i).getNif().getNumber());
@@ -31,10 +31,10 @@ public class Main {
                 "Nombre: " + manager.getCourt(1).getName() + "\n" +
                 "Precio: " + manager.getCourt(1).getPrice() + "€\n" +
                 "Tipo: " + manager.getCourt(1).getType() + "\n" +
-                "Número de reservas: " + manager.getCourt(1).getReservations().size());
+                "Número de reservas: " + manager.getCourt(1).countReservations());
 
         manager.reserve(manager.getCustomer(0), manager.getCourt(1), new Date());
-        manager.getCustomers().remove(1);
+        manager.removeCustomer(1);
         System.out.println("\nDatos de reservas:\n" +
                 "Identificador de la reserva:  " + manager.getCustomer(0).getReservation(0).getId() + "\n" +
                 "Fecha de la reserva: " + manager.getCustomer(0).getReservation(0).getDate().toString() + "\n" +
