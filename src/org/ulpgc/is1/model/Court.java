@@ -40,12 +40,16 @@ public class Court {
         this.type = type;
     }
 
-    public ArrayList<Reservation> getReservations() {
-        return reservations;
-    }
-
     public boolean addReservation(Reservation newReservation){
         return reservations.add(newReservation);
+    }
+
+    public Reservation getReservation(int reservationId){
+        for(Reservation reservation : reservations){
+            if(reservation.getId() == reservationId)
+                return reservation;
+        }
+        return null;
     }
 
     public boolean removeReservation(int reservationId){
@@ -56,11 +60,7 @@ public class Court {
         return false;
     }
 
-    public Reservation getReservation(int reservationId){
-        for(Reservation reservation : reservations){
-            if(reservation.getId() == reservationId)
-                return reservation;
-        }
-        return null;
+    public int countReservations(){
+        return this.reservations.size();
     }
 }
