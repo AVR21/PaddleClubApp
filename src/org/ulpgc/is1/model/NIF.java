@@ -1,7 +1,7 @@
 package org.ulpgc.is1.model;
 
 public class NIF {
-    private final String number;
+    private String number;
 
     private NIF(String number) {
         this.number = number;
@@ -14,11 +14,22 @@ public class NIF {
     }
 
     public boolean isValid() {
-        if (this.number.length() != 9) return false;
-        return this.number.matches("\\d{8}[A-Z]");
+        return isValid(this.number);
+    }
+
+    private static boolean isValid(String number) {
+        if (number.length() != 9) return false;
+        if (!number.matches("\\d{8}[A-Z]")) return false;
+        String NIF_ASOTIATION = "TRWAGMYFPDXBNJZSQVHLCKE";
+        int checkNIF = Integer.parseInt(number.substring(0,8));
+        return NIF_ASOTIATION.charAt(checkNIF % 23)==(number.charAt(8));
     }
 
     public String getNumber() {
         return this.number;
+    }
+
+    public void setNumber(String number){
+        if (isValid(number)) this.number = number;
     }
 }
