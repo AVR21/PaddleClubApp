@@ -13,14 +13,16 @@ public class Main {
         int size = manager.countCustomers();
         for (int i = 0; i < size; i++) {
             if (!manager.getCustomer(i).getNif().getNumber().equals("XXXX")) {
-                System.out.println("Cliente con nombre: " + manager.getCustomer(i).getName() + " con NIF válido: " + manager.getCustomer(i).getNif().getNumber());
+                if(manager.getMember(i) == null)
+                    System.out.println("Cliente con nombre: " + manager.getCustomer(i).getName() + " con NIF válido: " + manager.getCustomer(i).getNif().getNumber());
+                else System.out.println("Miembro del club con nombre " + manager.getCustomer(i).getName() + " y con NIF válido: " + manager.getCustomer(i).getNif().getNumber());
             }
         }
 
         System.out.println("\nDatos del primer cliente:\n" +
-                "Nombre: " + manager.getCustomer(0).getName() + "\n" +
-                "Apellido: " + manager.getCustomer(0).getSurname() + "\n" +
-                "NIF: " + manager.getCustomer(0).getNif().getNumber() + "\n" +
+                "Nombre: " + manager.getMember(0).getName() + "\n" +
+                "Apellido: " + manager.getMember(0).getSurname() + "\n" +
+                "NIF: " + manager.getMember(0).getNif().getNumber() + "\n" +
                 "Residencia: " + manager.getMember(0).getAddress().toString());
 
         System.out.println("\nDatos del segundo cliente:\n" +
