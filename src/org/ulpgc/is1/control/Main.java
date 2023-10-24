@@ -20,7 +20,8 @@ public class Main {
         System.out.println("\nDatos del primer cliente:\n" +
                 "Nombre: " + manager.getCustomer(0).getName() + "\n" +
                 "Apellido: " + manager.getCustomer(0).getSurname() + "\n" +
-                "NIF: " + manager.getCustomer(0).getNif().getNumber());
+                "NIF: " + manager.getCustomer(0).getNif().getNumber() + "\n" +
+                "Residencia: " + manager.getMember(0).getAddress().toString());
 
         System.out.println("\nDatos del segundo cliente:\n" +
                 "Nombre: " + manager.getCustomer(1).getName() + "\n" +
@@ -46,7 +47,7 @@ public class Main {
 
     private static void init(PaddleManager manager) {
 
-        manager.addCustomer("Francesco", "Vergollini", "12345678A");
+        manager.addMember("Francesco", "Vergollini", "61631648C", "Calle Menorca", 4, 35000, "Las Palmas");
         manager.addCustomer("Pablo", "Pérez", "12SD34TT4");
         manager.addCourt("Pista Rápida", 130, CourtType.FastCourt);
         manager.addCourt("Pista Lenta", 80, CourtType.SlowCourt);

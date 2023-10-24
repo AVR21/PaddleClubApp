@@ -28,6 +28,11 @@ public class PaddleManager {
         return customers.get(index);
     }
 
+    public Member getMember(int index){
+        if (index < 0 || index >= customers.size()) throw new IndexOutOfBoundsException();
+        return (Member)customers.get(index);
+    }
+
     //Elimina el cliente almacenado en la posición indicada de la lista
     public boolean removeCustomer(int index) {
         if (index < 0 || index >= customers.size()) throw new IndexOutOfBoundsException();
