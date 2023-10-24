@@ -5,7 +5,7 @@ public class Member extends Customer{
 
     private Address address;
 
-    public Member create(String name, String surname, String nif, String street, int number, int postalCode, String city){
+    public static Member create(String name, String surname, String nif, String street, int number, int postalCode, String city){
         Member member = new Member(name, surname, nif);
         member.setAddress(street, number, postalCode, city);
         return member;
