@@ -7,6 +7,7 @@ public class Member extends Customer{
 
     public Member(String name, String surname, String nif) {
         super(name, surname, nif);
+        this.points = 0;
     }
 
     public int getPoints() {
